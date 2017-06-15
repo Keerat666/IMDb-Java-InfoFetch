@@ -11,7 +11,7 @@ public class imdb {
     public static void main(String[] args) throws IOException {
 
         // Make a URL to the web page
-        URL url = new URL("http://www.imdb.com/title/tt0451279/");
+        URL url = new URL("http://www.imdb.com/title/tt0451279/"); // give the link here
         // Get the input stream through URL Connection
         URLConnection con = url.openConnection();
         InputStream is =con.getInputStream();
