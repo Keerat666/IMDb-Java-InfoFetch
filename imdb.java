@@ -6,12 +6,14 @@ import java.net.URL;
 import java.net.URLConnection;
 
 
-public class imdb {
+public class imdb extends scrap {
 
     public static void main(String[] args) throws IOException {
-
+	
+	choice();
         // Make a URL to the web page
-        URL url = new URL("http://www.imdb.com/title/tt0451279/"); // give the link here
+	String link="http://www.imdb.com"+mlinks[ch-1];
+        URL url = new URL(link);
         // Get the input stream through URL Connection
         URLConnection con = url.openConnection();
         InputStream is =con.getInputStream();
@@ -25,20 +27,15 @@ public class imdb {
 			s+=line;
         }
 		
-		int y=s.indexOf("title_wrapper");
-		if(y!=-1)
-		{
-			String rank=s.substring(y+44,y+69);
-			String rankf=rank.substring(0, rank.indexOf("&"));
-			System.out.print("Movie Name : "+rankf);
-		}
-		int z=s.indexOf("titleYear");
-		if(z!=-1)
-		{
-			String rank=s.substring(z+27,z+31);
-			System.out.print(" ("+rank+")");
 
-		}
+
+		
+
+
+			System.out.print("Movie Name : "+names[ch-1]);
+			System.out.print(" ("+yor[ch-1]+")");
+
+		
 		System.out.println();
 		System.out.print("Summary :");
 		int a=s.indexOf("summary_text");
@@ -84,6 +81,7 @@ public class imdb {
 				y3=s.indexOf("actors",y3+150);
 			}
 		}
+			System.out.println();
 		int x=s.indexOf("Top Rated Indian Movies #");
 		if(x!=-1)
 		{
